@@ -1,1 +1,133 @@
+🚀 Java Web Application: Build & Deploy Guide (Java 17 + Maven + JBoss/WildFly)
+🧾 Overview
+
+This project is a Java Web Application built using Java 17 and Maven, and deployed on JBoss (WildFly) application server.
+It demonstrates a simple Java web app structure — a calculator web application using JSP and Servlet components.
+
+📁 Project Structure
+NETFLIX/
+├── pom.xml
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── in/raham/servlets/
+│   │   │       └── CalculatorServlet.java
+│   │   ├── resources/
+│   │   └── webapp/
+│   │       ├── WEB-INF/
+│   │       │   └── web.xml
+│   │       ├── index.jsp
+│   │       └── styles.css
+│   └── test/
+│       └── java/
+│           └── in/raham/tests/
+│               └── CalculatorTest.java
+└── README.md
+Folder explanation:
+
+pom.xml → Maven project configuration file
+
+CalculatorServlet.java → Java logic for your calculator
+
+web.xml → Web deployment descriptor (inside WEB-INF)
+
+index.jsp → Home page of your web app
+
+CalculatorTest.java → JUnit test cases
+
+target/ → Folder automatically created after Maven build (contains .war file)
+
+
+⚙️ Prerequisites
+✅ Step 1: Install Java 17
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+
+
+Verify:
+
+java -version
+
+
+Expected output:
+
+openjdk version "17.0.x" ...
+
+✅ Step 2: Install Maven
+sudo apt install maven -y
+
+
+Verify:
+
+mvn -v
+
+✅ Step 3: Install JBoss / WildFly
+
+Download and extract WildFly (JBoss):
+
+wget https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final.tar.gz
+tar -xvzf wildfly-32.0.0.Final.tar.gz
+mv wildfly-32.0.0.Final /opt/wildfly
+
+
+Start the JBoss server:
+
+cd /opt/wildfly/bin
+./standalone.sh -b 0.0.0.0
+
+
+
+Access the JBoss console:
+
+http://<server-ip>:8080
+
+🧩 Step 4: Update pom.xml
+
+Ensure your pom.xml contains Java 17 configurations.
+You can use this preconfigured version:
+
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+</properties>
+
+
+Then run:
+
+mvn clean package
+
+
+This will generate a .war file inside:
+
+target/NETFLIX.war
+
+🚀 Step 5: Deploy WAR File to JBoss
+Option 1: Deploy via JBoss Admin Console
+
+Open your browser:
+👉 http://<server-ip>:8080
+
+
+Click Enable to activate the deployment.
+
+Option 2: Deploy via Command Line (CLI)
+
+Copy WAR file to the JBoss deployments directory:
+
+scp -i git.pem /home/ubuntu/JavaWebCalculator/target/*.war \
+ubuntu@<JBOSS_SERVER_IP>:/opt/wildfly/standalone/deployments/
+
+
+JBoss automatically detects new .war files in the deployments directory and deploys them automatically.
+
+🧪 Step 6: Test the Application
+
+Open your browser and visit:
+
+http://<JBOSS_SERVER_IP>:8080/NETFLIX.war
+
+
+Application running in browser
+
 
