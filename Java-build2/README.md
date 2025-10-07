@@ -71,6 +71,8 @@ openjdk version "17.0.x" ...
 
 ✅ Step 2: Install Maven
 sudo apt install maven -y
+<img width="845" height="146" alt="9" src="https://github.com/user-attachments/assets/514debe3-1aa2-485a-af60-f98c68f36a30" />
+
 
 
 Verify:
@@ -80,9 +82,12 @@ mvn -v
 ✅ Step 3: Install JBoss / WildFly
 
 Download and extract WildFly (JBoss):
-
+```bash
 wget https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final.tar.gz
 tar -xvzf wildfly-32.0.0.Final.tar.gz
+```
+<img width="856" height="140" alt="7" src="https://github.com/user-attachments/assets/b827eeda-50fb-4cae-bfaf-eb1e26b68e1e" />
+
 mv wildfly-32.0.0.Final /opt/wildfly
 
 
@@ -110,13 +115,20 @@ You can use this preconfigured version:
 
 
 Then run:
-
+```bash
 mvn clean package
+```
+<img width="851" height="198" alt="12" src="https://github.com/user-attachments/assets/6076af56-02ec-4c97-bb00-7efd472d345b" />
+<img width="585" height="152" alt="13" src="https://github.com/user-attachments/assets/94d7346c-d8b3-498f-8742-3f55ed801399" />
+
 
 
 This will generate a .war file inside:
-
+```bash
 target/NETFLIX.war
+```
+<img width="841" height="222" alt="14" src="https://github.com/user-attachments/assets/3132872f-750f-44ac-a8b7-77d647f441c8" />
+
 
 🚀 Step 5: Deploy WAR File to JBoss
 Option 1: Deploy via JBoss Admin Console
@@ -140,9 +152,11 @@ JBoss automatically detects new .war files in the deployments directory and depl
 🧪 Step 6: Test the Application
 
 Open your browser and visit:
+```bash
 
 http://<JBOSS_SERVER_IP>:8080/NETFLIX.war
-
+```
+<img width="956" height="462" alt="11" src="https://github.com/user-attachments/assets/ab5c3807-378c-41e3-80d4-f88975935bf6" />
 
 Application running in browser
 
