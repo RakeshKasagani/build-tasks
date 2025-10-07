@@ -32,9 +32,10 @@ To install Java 17, run the following commands (for Ubuntu/Debian):
 ```bash
 sudo apt update
 sudo apt install openjdk-17-jdk -y
+```
 <img width="644" height="83" alt="Image" src="https://github.com/user-attachments/assets/14487079-a914-44ae-b280-c185bc1b59a9" />
 <img width="628" height="190" alt="Image" src="https://github.com/user-attachments/assets/2f3a791a-3374-4f9d-9653-dcdb9295a047" />
-```
+
 ## java -version
 ### Output should be something like:
 ### openjdk version "17.0.x"...
@@ -42,8 +43,9 @@ sudo apt install openjdk-17-jdk -y
 ## Install Maven
 ```bash
 sudo apt install maven -y
-<img width="647" height="111" alt="Image" src="https://github.com/user-attachments/assets/0e93a3cf-4e12-405f-8754-5efa94e98e48" />
 ```
+<img width="647" height="111" alt="Image" src="https://github.com/user-attachments/assets/0e93a3cf-4e12-405f-8754-5efa94e98e48" />
+
 ## Verify Maven installation
 ```bash
 mvn -v
@@ -53,9 +55,10 @@ mvn -v
 ```bash
 wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.110/bin/apache-tomcat-9.0.110.tar.gz
 tar -xvzf apache-tomcat-9.0.110.tar.gz
+```
 <img width="932" height="255" alt="9" src="https://github.com/user-attachments/assets/c291c934-9d40-4b5d-9f21-b7ddadf6d02b" />
 
-```
+
 ## Add Tomcat User for Manager Access
 ```bash
 sudo vi tomcat/conf/tomcat-users.xml
@@ -68,10 +71,11 @@ sudo vi tomcat/conf/tomcat-users.xml
 ```
 ## Edit the context.xml file to allow remote access
 ```bash
+```
 sudo vi tomcat/webapps/manager/META-INF/context.xml
 <img width="647" height="143" alt="11" src="https://github.com/user-attachments/assets/f2da6a45-3dba-44bf-9ec1-e32ee0fd5e0e" />
 
-```
+
 ## Comment out the IP restriction
 ```bash
 <!--
@@ -89,13 +93,11 @@ cd JavaWebCalculator
 ### Run the following Maven command to clean and package your application
 ```bash
 mvn clean package
+```
 <img width="584" height="176" alt="12" src="https://github.com/user-attachments/assets/03414e26-8813-4a35-bd9c-1dce99682bf9" />
 <img width="792" height="455" alt="13" src="https://github.com/user-attachments/assets/e4a84d03-7b49-4558-962f-3a0784c04fbe" />
 <img width="833" height="250" alt="14" src="https://github.com/user-attachments/assets/c15db37d-9232-45c2-9364-e3616b4db5bf" />
 
-
-
-```
 
 ## Deploy the WAR to Apache Tomcat
 ### Option 1: Deploy via Manager Web Interface
