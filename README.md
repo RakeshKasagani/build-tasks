@@ -113,3 +113,4 @@ http://localhost:8080/webapp-0.2
 
 You should see the index.jsp page of your web application.
 ## Screenshots
+<img width="631" height="320" alt="Image" src="https://github.com/user-attachments/assets/af0869d6-4288-4d79-984e-f6287056b832" />
