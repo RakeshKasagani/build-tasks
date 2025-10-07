@@ -40,8 +40,10 @@ target/ → Folder automatically created after Maven build (contains .war file)
 
 ⚙️ Prerequisites
 ✅ Step 1: Install Java 17
+```bash
 sudo apt update
 sudo apt install openjdk-17-jdk -y
+```
 <img width="631" height="320" alt="Image" src="https://github.com/user-attachments/assets/d1cc766b-99b0-4566-88ad-9b795543d792" />
 
 Verify:
