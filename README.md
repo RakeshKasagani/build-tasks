@@ -32,8 +32,7 @@ To install Java 17, run the following commands (for Ubuntu/Debian):
 ```bash
 sudo apt update
 sudo apt install openjdk-17-jdk -y
-<img width="644" height="83" alt="Image" src="https://github.com/user-attachments/assets/4a452fcc-d8cc-408c-ba19-13cc19934aa6" />
-<img width="628" height="190" alt="Image" src="https://github.com/user-attachments/assets/2b321f2b-d90d-4cee-9fd2-22d6110696e5" />
+<img width="644" height="83" alt="Image" src="https://github.com/user-attachments/assets/14487079-a914-44ae-b280-c185bc1b59a9" />
 ```
 ## java -version
 ### Output should be something like:
