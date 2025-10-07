@@ -45,6 +45,20 @@ sudo apt update
 sudo apt install openjdk-17-jdk -y
 ```
 <img width="631" height="320" alt="Image" src="https://github.com/user-attachments/assets/d1cc766b-99b0-4566-88ad-9b795543d792" />
+<img width="611" height="355" alt="2" src="https://github.com/user-attachments/assets/791c2198-80f4-4913-8c0b-9dbc784ad167" />
+<img width="631" height="246" alt="3" src="https://github.com/user-attachments/assets/0ba95995-e875-470e-ad8e-55d72dabf408" />
+<img width="400" height="350" alt="4" src="https://github.com/user-attachments/assets/b20cb5b1-47aa-4a4b-99e9-ce46e8962cb5" />
+<img width="923" height="347" alt="5" src="https://github.com/user-attachments/assets/bff215dc-e471-493b-b2b3-5cdfe5fddd65" />
+<img width="564" height="342" alt="6" src="https://github.com/user-attachments/assets/b5613acc-773d-41a0-86e6-3d3a9c13bd8c" />
+<img width="673" height="137" alt="7" src="https://github.com/user-attachments/assets/28cff599-4a7c-441a-891f-f212d5173ff8" />
+<img width="827" height="215" alt="8" src="https://github.com/user-attachments/assets/eab4c865-1409-45b2-bb98-5c10e2271016" />
+
+
+
+
+
+
+
 
 Verify:
 
