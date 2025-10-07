@@ -90,11 +90,13 @@ tar -xvzf wildfly-32.0.0.Final.tar.gz
 
 mv wildfly-32.0.0.Final /opt/wildfly
 
-
+```bash
 Start the JBoss server:
 
-cd /opt/wildfly/bin
+```
 ./standalone.sh -b 0.0.0.0
+<img width="850" height="362" alt="10" src="https://github.com/user-attachments/assets/91943c3b-14e2-4937-aa9c-28033a611e1b" />
+
 
 
 
