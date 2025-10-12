@@ -1,155 +1,178 @@
-🧰 Prerequisites
+📜 Overview of Architecture
+┌─────────────────────┐        ┌─────────────────────────────┐
+│   User (Browser)    │        │     AWS RDS (MySQL DB)      │
+│  http://publicIP    │───────▶│   users table (login data)  │
+└─────────────────────┘        └─────────────────────────────┘
+           ▲
+           │
+           ▼
+┌─────────────────────┐
+│  EC2 (Tomcat 9)     │
+│  Deploy WAR file    │
+│  Connect to RDS     │
+└─────────────────────┘
 
-✅ AWS Account
+✅ STEP 1: Set Up AWS Infrastructure
+1.1 Launch EC2 Instance
 
-✅ Java Web Application (.war file) — e.g., myapp.war
+Go to AWS EC2 → Launch Instance
 
-✅ MySQL-compatible app (JDBC connection in web.xml or context.xml)
+AMI: Ubuntu 22.04 LTS (or Amazon Linux 2)
 
-✅ SSH key pair for EC2
+Instance type: t2.micro (Free tier)
 
-✅ Security groups configured properly
+Key pair: Create/select key
 
-🏗️ STEP 1: Launch EC2 Instance for Tomcat
+Security Group:
 
-Login to AWS Console → EC2 → Launch Instance
-<img width="631" height="320" alt="Image" src="https://github.com/user-attachments/assets/dee156fe-d55a-45d5-bc0e-6792e0d5604b" />
+Allow SSH (22) from your IP
 
-Choose Ubuntu or Amazon Linux AMI
-<img width="611" height="355" alt="Image" src="https://github.com/user-attachments/assets/ae1104da-dd4b-4f8c-88a8-89bd65765a89" />
+Allow HTTP (80)
 
-Choose an instance type (e.g., t3.micro for testing)
-<img width="631" height="246" alt="Image" src="https://github.com/user-attachments/assets/9cd46aef-c700-455d-a663-ea87df0d3703" />
+Allow Tomcat (8080)
 
-Create or use an existing key pair
-<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/d5de480c-2914-4931-9a49-eecd7957baa8" />
+Launch and connect via SSH:
 
-Add security group rules:
+ssh -i your-key.pem ubuntu@<EC2-Public-IP>
 
-✅ Port 22 (SSH) – your IP
-
-✅ Port 8080 (Tomcat)
-<img width="618" height="347" alt="Image" src="https://github.com/user-attachments/assets/22ce3125-7426-46c8-b804-9f6f6ea0a471" />
-<img width="617" height="349" alt="Image" src="https://github.com/user-attachments/assets/3cc156ef-2b57-4831-974a-0f70a4981c01" />
-
-Launch the instance and connect via SSH:
-
-
-ssh -i yourkey.pem ubuntu@<EC2-Public-IP>
-
-☕ STEP 2: Install Java and Tomcat on EC2
-# Update packages
-```bash
+🐳 STEP 2: Install Java & Tomcat on EC2
 sudo apt update -y
-```
-<img width="673" height="137" alt="Image" src="https://github.com/user-attachments/assets/305a3bbd-c8be-44db-819c-857c7f1a2390" />
-
-
-# Install Java
-```bash
-sudo apt install openjdk-17-jdk -y
-```
-<img width="827" height="215" alt="Image" src="https://github.com/user-attachments/assets/18b249a8-41de-4ac0-a6cd-4f374020eec3" />
-
-# Check version
+sudo apt install openjdk-17-jdk -y    # or Java 11
 java -version
 
-# Install Tomcat 9
 sudo apt install tomcat9 tomcat9-admin -y
-
-
-# Start Tomcat
-sudo systemctl start tomcat9
 sudo systemctl enable tomcat9
-
-# Check status
-sudo systemctl status tomcat9
+sudo systemctl start tomcat9
 
 
-✅ Access Tomcat in browser:
+Check:
+
 http://<EC2-Public-IP>:8080
-(You should see Tomcat’s default page.)
 
-🛢️ STEP 3: Create MySQL Database on AWS RDS
 
-Go to RDS → Create database
+You should see the Tomcat home page ✅
+
+🧱 STEP 3: Create AWS RDS MySQL Database
+
+Go to RDS → Create Database
 
 Engine: MySQL
 
-Choose Free Tier (if eligible)
+Templates: Free tier
 
-DB instance identifier: mydb
+DB Instance identifier: login-db
 
-Master username & password (remember these)
+Master user: admin
+Password: StrongPassword123!
 
-Set VPC and Public Access = Yes (or keep private and use VPC peering if needed)
+Public access: Yes (for demo; in production use private)
 
-Add Security group allowing inbound:
+Security Group: allow inbound port 3306 from EC2 security group.
 
-✅ Port 3306 from EC2 Security Group
+Launch DB
 
-Launch DB instance
+✅ After creation, note:
 
-Wait until status = Available.
+RDS Endpoint (e.g., login-db.abcdefgh.ap-south-1.rds.amazonaws.com)
 
-✅ Note down:
+Port: 3306
 
-Endpoint (e.g., mydb.abcdefgh.us-east-1.rds.amazonaws.com)
+🛢 STEP 4: Create Database & Table
 
-Port (3306)
-
-Username / Password
-
-🧱 STEP 4: Connect EC2 → RDS MySQL
-
-From EC2 SSH:
+From your EC2 instance:
 
 sudo apt install mysql-client -y
-mysql -h <RDS-ENDPOINT> -u <username> -p
+mysql -h <RDS-ENDPOINT> -u admin -p
 
 
-If successful, you’re connected.
+Inside MySQL:
 
-✅ Create your app database and tables:
+CREATE DATABASE login_db;
+USE login_db;
 
-CREATE DATABASE myappdb;
-USE myappdb;
--- Example table
-CREATE TABLE users (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50));
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL
+);
 
-⚙️ STEP 5: Configure Web Application Database Connection
+INSERT INTO users (username, password) VALUES ('admin', 'admin123');
 
-There are 2 common ways:
 
-Option A: JDBC in your application code
+✅ Test:
 
-In your Java servlet/config file:
+SELECT * FROM users;
 
-String url = "jdbc:mysql://mydb.abcdefgh.us-east-1.rds.amazonaws.com:3306/myappdb";
-String username = "admin";
-String password = "StrongPassword";
-Connection con = DriverManager.getConnection(url, username, password);
+📦 STEP 5: Prepare Java Login Web Application
+Directory structure example:
+LoginApp/
+├── src/
+│   └── LoginServlet.java
+├── WebContent/
+│   ├── index.jsp
+│   ├── login.jsp
+│   └── WEB-INF/
+│       └── web.xml
 
-Option B: JNDI (context.xml / web.xml)
+Sample LoginServlet.java:
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.sql.*;
 
-In META-INF/context.xml:
+public class LoginServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
-<Resource name="jdbc/MyDB" 
-          auth="Container" 
-          type="javax.sql.DataSource"
-          maxTotal="100" 
-          maxIdle="30" 
-          maxWaitMillis="10000"
-          username="admin" 
-          password="StrongPassword"
-          driverClassName="com.mysql.cj.jdbc.Driver"
-          url="jdbc:mysql://mydb.abcdefgh.us-east-1.rds.amazonaws.com:3306/myappdb"/>
+        String jdbcURL = "jdbc:mysql://login-db.abcdefgh.ap-south-1.rds.amazonaws.com:3306/login_db";
+        String dbUser = "admin";
+        String dbPassword = "StrongPassword123!";
 
-🪄 STEP 6: Install MySQL Connector/J
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-Tomcat needs the MySQL driver:
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            String sql = "SELECT * FROM users WHERE username=? AND password=?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
 
-cd /var/lib/tomcat9/lib
+            if(rs.next()) {
+                out.println("<h2>Login Successful! Welcome " + username + "</h2>");
+            } else {
+                out.println("<h2>Invalid credentials</h2>");
+            }
+
+            conn.close();
+        } catch(Exception e) {
+            e.printStackTrace(out);
+        }
+    }
+}
+
+web.xml:
+<web-app>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+</web-app>
+
+📥 STEP 6: Add MySQL Connector/J Driver
+
+Download MySQL Connector:
+
+cd /usr/share/tomcat9/lib
 sudo wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-8.4.0.tar.gz
 tar -xvf mysql-connector-j-8.4.0.tar.gz
 cd mysql-connector-j-8.4.0
@@ -160,56 +183,35 @@ Restart Tomcat:
 
 sudo systemctl restart tomcat9
 
-📦 STEP 7: Deploy the WAR File
+🏗 STEP 7: Build & Deploy the WAR File
 
-Copy your .war file to Tomcat webapps:
+If you used Eclipse / Maven:
 
-sudo cp myapp.war /var/lib/tomcat9/webapps/
+Export project as LoginApp.war
 
+On EC2:
 
-Tomcat will auto-deploy it.
-
-Check the logs if needed:
-
-sudo tail -f /var/log/tomcat9/catalina.out
+scp -i your-key.pem LoginApp.war ubuntu@<EC2-Public-IP>:/tmp
+sudo cp /tmp/LoginApp.war /var/lib/tomcat9/webapps/
 
 
-✅ Access the application:
-http://<EC2-Public-IP>:8080/myapp
+Tomcat will auto-deploy:
 
-🔐 STEP 8: (Optional) Secure with Security Groups & Environment Variables
+/var/lib/tomcat9/webapps/LoginApp/
 
-Restrict RDS to EC2 Security Group only (not 0.0.0.0/0)
+🌐 STEP 8: Access the Application
 
-Use AWS Secrets Manager or .env file for DB credentials
+Open in browser:
 
-Use a reverse proxy (like Nginx) to map port 80 → 8080 if needed.
-
-sudo apt install nginx -y
-sudo nano /etc/nginx/sites-available/default
-
-location / {
-    proxy_pass http://localhost:8080/myapp;
-}
+http://<EC2-Public-IP>:8080/LoginApp
 
 
-Then:
+Enter:
 
-sudo systemctl restart nginx
+Username: admin
+Password: admin123
 
 
-Access:
-http://<EC2-Public-IP>
+✅ If successful → it will display:
 
-🧪 STEP 9: Test the Application
-
-Form submission should write to RDS DB
-
-Data should persist after Tomcat restart
-
-You can monitor DB using:
-
-mysql -h <RDS-ENDPOINT> -u <username> -p
-USE myappdb;
-SELECT * FROM users;
-
+Login Successful! Welcome admin
