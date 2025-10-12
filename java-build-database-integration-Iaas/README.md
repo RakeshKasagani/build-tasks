@@ -16,18 +16,24 @@ Login to AWS Console → EC2 → Launch Instance
 <img width="631" height="320" alt="Image" src="https://github.com/user-attachments/assets/dee156fe-d55a-45d5-bc0e-6792e0d5604b" />
 
 Choose Ubuntu or Amazon Linux AMI
+<img width="611" height="355" alt="Image" src="https://github.com/user-attachments/assets/ae1104da-dd4b-4f8c-88a8-89bd65765a89" />
 
 Choose an instance type (e.g., t3.micro for testing)
+<img width="631" height="246" alt="Image" src="https://github.com/user-attachments/assets/9cd46aef-c700-455d-a663-ea87df0d3703" />
 
 Create or use an existing key pair
+<img width="400" height="350" alt="Image" src="https://github.com/user-attachments/assets/d5de480c-2914-4931-9a49-eecd7957baa8" />
 
 Add security group rules:
 
 ✅ Port 22 (SSH) – your IP
 
 ✅ Port 8080 (Tomcat)
+<img width="618" height="347" alt="Image" src="https://github.com/user-attachments/assets/22ce3125-7426-46c8-b804-9f6f6ea0a471" />
+<img width="617" height="349" alt="Image" src="https://github.com/user-attachments/assets/3cc156ef-2b57-4831-974a-0f70a4981c01" />
 
 Launch the instance and connect via SSH:
+
 
 ssh -i yourkey.pem ubuntu@<EC2-Public-IP>
 
@@ -36,16 +42,21 @@ ssh -i yourkey.pem ubuntu@<EC2-Public-IP>
 ```bash
 sudo apt update -y
 ```
+<img width="673" height="137" alt="Image" src="https://github.com/user-attachments/assets/305a3bbd-c8be-44db-819c-857c7f1a2390" />
 
 
 # Install Java
-sudo apt install openjdk-17-jdk -y   # or Java 11 depending on your app
+```bash
+sudo apt install openjdk-17-jdk -y
+```
+<img width="827" height="215" alt="Image" src="https://github.com/user-attachments/assets/18b249a8-41de-4ac0-a6cd-4f374020eec3" />
 
 # Check version
 java -version
 
 # Install Tomcat 9
 sudo apt install tomcat9 tomcat9-admin -y
+
 
 # Start Tomcat
 sudo systemctl start tomcat9
@@ -201,3 +212,4 @@ You can monitor DB using:
 mysql -h <RDS-ENDPOINT> -u <username> -p
 USE myappdb;
 SELECT * FROM users;
+
