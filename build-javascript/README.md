@@ -129,37 +129,13 @@ sudo chown -R ubuntu:ubuntu /var/www/html
 sudo chmod -R 777 /var/www/html
 ```
 
-Step 4: Configure Nginx
-
-Open the default configuration file:
-```
-sudo vi /etc/nginx/sites-available/default
-```
-
-Modify it as follows:
-```
-server {
-    listen 80;
-    server_name _;
-
-    root /var/www/html;
-    index index.html;
-
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-}
-```
-
-<img width="591" height="347" alt="Image" src="https://github.com/user-attachments/assets/ae97cd87-0eaa-46fe-b240-3a54a11fe6b0" />
-
-
-Step 5: Restart and Check Nginx
+Step 4: Restart and Check Nginx
 ```
 sudo systemctl restart nginx
 sudo systemctl status nginx
 ```
-<img width="1443" height="425" alt="Image" src="https://github.com/user-attachments/assets/ef6d9e52-8ae4-49b8-ae82-c856bec90020" />
+<img width="765" height="248" alt="17" src="https://github.com/user-attachments/assets/be43789f-12a3-48db-8424-b27c881af8f1" />
+
 
 
 **✅ 5. Verify Deployment**
@@ -214,6 +190,7 @@ Set up a Node.js + Angular build environment
 Compiled your app for production
 
 Hosted your Angular app using Nginx
+
 
 
 
