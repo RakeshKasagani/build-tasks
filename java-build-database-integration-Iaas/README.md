@@ -16,20 +16,31 @@
 1.1 Launch EC2 Instance
 
 Go to AWS EC2 → Launch Instance
+<img width="631" height="320" alt="1" src="https://github.com/user-attachments/assets/350976fb-fe93-4d28-8fbc-08070e5d8f53" />
+
 
 AMI: Ubuntu 22.04 LTS (or Amazon Linux 2)
+<img width="611" height="355" alt="2" src="https://github.com/user-attachments/assets/2077ec08-a68f-4cc4-b529-abf4da59151b" />
 
-Instance type: t2.micro (Free tier)
+
+Instance type: t3.micro (Free tier)
+<img width="631" height="246" alt="3" src="https://github.com/user-attachments/assets/46214390-740a-4a77-8e9b-31a7dba21021" />
+
 
 Key pair: Create/select key
+<img width="400" height="350" alt="4" src="https://github.com/user-attachments/assets/c06d7340-92e7-4313-a1ef-938c2bd9e36d" />
+
 
 Security Group:
 
 Allow SSH (22) from your IP
 
-Allow HTTP (80)
+Allow mysql (3306)
 
 Allow Tomcat (8080)
+<img width="628" height="382" alt="1" src="https://github.com/user-attachments/assets/2bd1bfea-54f4-4c6c-8da9-327b0582f2f3" />
+<img width="631" height="343" alt="2" src="https://github.com/user-attachments/assets/ade15c6d-eb94-4195-8d8f-4f7034cbe333" />
+
 
 Launch and connect via SSH:
 
@@ -215,3 +226,4 @@ Password: admin123
 ✅ If successful → it will display:
 
 Login Successful! Welcome admin
+
