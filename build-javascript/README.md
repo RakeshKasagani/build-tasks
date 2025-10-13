@@ -120,9 +120,7 @@ sudo apt install nginx -y
 nginx --version
 sudo systemctl start nginx
 ```
-<img width="1466" height="425" alt="Screenshot 2025-10-13 180649" src="https://github.com/user-attachments/assets/b37d920a-9c06-43d7-ab54-4285d0c4252b" />
-
-<img width="462" height="57" alt="Image" src="https://github.com/user-attachments/assets/60c14476-90da-4515-9dba-f231968408ac" />
+<img width="763" height="243" alt="18" src="https://github.com/user-attachments/assets/ca536fec-1116-4946-a2c4-b4fd8d8c6926" />
 
 
 Step 3: Set Permissions for Web Root
@@ -216,6 +214,7 @@ Set up a Node.js + Angular build environment
 Compiled your app for production
 
 Hosted your Angular app using Nginx
+
 
 
 
