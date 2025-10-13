@@ -48,10 +48,17 @@ ssh -i your-key.pem ubuntu@<EC2-Public-IP>
 
 🐳 STEP 2: Install Java & Tomcat on EC2
 sudo apt update -y
-sudo apt install openjdk-17-jdk -y    # or Java 11
-java -version
+<img width="647" height="217" alt="8" src="https://github.com/user-attachments/assets/767c1398-5a57-4c80-b50a-497ce0c737cb" />
+ 
 
-sudo apt install tomcat9 tomcat9-admin -y
+sudo apt install openjdk-17-jdk -y 
+<img width="801" height="226" alt="9" src="https://github.com/user-attachments/assets/f61be8dd-a1f3-4d28-816f-2e7cde4cc5e4" />
+
+sudo apt install maven -y
+<img width="777" height="234" alt="10" src="https://github.com/user-attachments/assets/a0d47dc1-2a54-456d-b956-5a5ac678fa56" />
+
+install tomcat
+
 sudo systemctl enable tomcat9
 sudo systemctl start tomcat9
 
@@ -226,4 +233,5 @@ Password: admin123
 ✅ If successful → it will display:
 
 Login Successful! Welcome admin
+
 
