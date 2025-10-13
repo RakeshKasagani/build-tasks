@@ -81,7 +81,7 @@ ng build --configuration production
 ```
 NODE_OPTIONS=--openssl-legacy-provider ng build --prod
 ```
-<img width="1430" height="47" alt="Image" src="https://github.com/user-attachments/assets/f6680c19-50c9-41e4-9e85-582a9df2efd5" />
+<img width="705" height="193" alt="Image" src="https://github.com/user-attachments/assets/c9c050e7-8698-424b-bbda-92dac79d7220" />
 
 After building, your output files will be located at:
 ```
@@ -214,5 +214,6 @@ Set up a Node.js + Angular build environment
 Compiled your app for production
 
 Hosted your Angular app using Nginx
+
 
 
