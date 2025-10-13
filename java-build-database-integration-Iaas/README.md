@@ -58,6 +58,9 @@ sudo apt install maven -y
 <img width="777" height="234" alt="10" src="https://github.com/user-attachments/assets/a0d47dc1-2a54-456d-b956-5a5ac678fa56" />
 
 install tomcat
+<img width="767" height="295" alt="20" src="https://github.com/user-attachments/assets/d293b149-65eb-4198-acb1-f7ead278b786" />
+
+
 
 sudo systemctl enable tomcat9
 sudo systemctl start tomcat9
@@ -233,5 +236,6 @@ Password: admin123
 ✅ If successful → it will display:
 
 Login Successful! Welcome admin
+
 
 
