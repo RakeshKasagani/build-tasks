@@ -100,8 +100,10 @@ Step 2: Securely copy build files to production server
 scp -i db.pem -r AngularCalculator/dist/angularCalc/* ubuntu@<PROD_SERVER_IP>:/var/www/html/
 ```
 
-<img width="1422" height="240" alt="Image" src="https://github.com/user-attachments/assets/fdf1e813-7262-4de1-85c6-2cb9105dcbb1" />
-<img width="1314" height="116" alt="Image" src="https://github.com/user-attachments/assets/fc394f0e-bb58-4896-9bed-cc8412b96fe9" />
+<img width="761" height="120" alt="15" src="https://github.com/user-attachments/assets/1b1623f1-b844-42bc-871e-a45fe8844e0f" />
+
+<img width="743" height="62" alt="16" src="https://github.com/user-attachments/assets/6e25914f-92ba-451b-afc4-c9b7b7d31d7a" />
+
 
 
 🌐 4. Setting up the Production Server (Nginx)
@@ -214,6 +216,7 @@ Set up a Node.js + Angular build environment
 Compiled your app for production
 
 Hosted your Angular app using Nginx
+
 
 
 
