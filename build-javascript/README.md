@@ -17,6 +17,20 @@ Production Server – for hosting with Nginx
 SSH key pair for secure access (.pem file)
 
 Basic knowledge of Linux commands
+<img width="622" height="289" alt="1" src="https://github.com/user-attachments/assets/cf21b27d-7e3a-487c-9768-59b0a3c255fd" />
+<img width="613" height="322" alt="2" src="https://github.com/user-attachments/assets/2dce4c3e-8d64-45d8-b346-50b19003c4a5" />
+<img width="623" height="182" alt="3" src="https://github.com/user-attachments/assets/c92b1e96-8306-447b-b5e4-d5c0638a5153" />
+<img width="455" height="371" alt="4" src="https://github.com/user-attachments/assets/49c36482-3dc1-4a95-b1ea-48814e5d29eb" />
+<img width="607" height="350" alt="5" src="https://github.com/user-attachments/assets/23eb39f7-b0ef-4361-a2b8-1d88d9ab08fa" />
+<img width="625" height="285" alt="6" src="https://github.com/user-attachments/assets/cb9aa3fe-8a14-408c-8d08-01736473e477" />
+<img width="956" height="245" alt="7" src="https://github.com/user-attachments/assets/51f55931-8945-4123-a5e4-a36b1587bb32" />
+
+
+
+
+
+
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -192,6 +206,7 @@ Compiled your app for production
 Hosted your Angular app using Nginx
 <img width="800" height="476" alt="9" src="https://github.com/user-attachments/assets/a1e375df-bd5d-4620-8e48-d20952a63f46" />
 <img width="684" height="476" alt="10" src="https://github.com/user-attachments/assets/87e11231-81c0-4ba7-8e8e-e9c075d5f14d" />
+
 
 
 
