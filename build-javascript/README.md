@@ -23,7 +23,7 @@ Basic knowledge of Linux commands
 ⚙️ 1. Setting up the Development Server
 Step 1: Set Hostname and Update Packages
 ```
-sudo hostnamectl set-hostname dev
+sudo hostnamectl set-hostname build-js
 sudo init 6
 sudo apt update -y
 ```
@@ -109,7 +109,7 @@ scp -i db.pem -r AngularCalculator/dist/angularCalc/* ubuntu@<PROD_SERVER_IP>:/v
 🌐 4. Setting up the Production Server (Nginx)
 Step 1: Set Hostname and Update
 ```
-sudo hostnamectl set-hostname prod
+sudo hostnamectl set-hostname deploy-js
 sudo init 6
 sudo apt update -y
 ```
@@ -192,6 +192,7 @@ Compiled your app for production
 Hosted your Angular app using Nginx
 <img width="800" height="476" alt="9" src="https://github.com/user-attachments/assets/a1e375df-bd5d-4620-8e48-d20952a63f46" />
 <img width="684" height="476" alt="10" src="https://github.com/user-attachments/assets/87e11231-81c0-4ba7-8e8e-e9c075d5f14d" />
+
 
 
 
