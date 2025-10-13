@@ -46,7 +46,7 @@ Verify installation:
 node -v
 npm -v
 ```
-<img width="508" height="151" alt="Image" src="https://github.com/user-attachments/assets/2a0b3ac1-9483-4b97-961e-0eb4ab014258" />
+<img width="254" height="76" alt="Image" src="https://github.com/user-attachments/assets/7212e810-d4f2-4d94-b85d-2c98b9e051b5" />
 
 
 Step 3: Install Angular CLI
@@ -64,7 +64,7 @@ Navigate to your Angular project directory:
 git clone 
 cd ~/AngularCalculator
 ```
-<img width="1452" height="429" alt="Image" src="https://github.com/user-attachments/assets/1c974918-2e1a-4199-8607-aadde94dfa8e" />
+<img width="512" height="119" alt="Image" src="https://github.com/user-attachments/assets/e0f2cf45-c21c-418b-8cb1-5be3cebb4e5d" />
 
 Install dependencies:
 ```
@@ -214,3 +214,4 @@ Set up a Node.js + Angular build environment
 Compiled your app for production
 
 Hosted your Angular app using Nginx
+
