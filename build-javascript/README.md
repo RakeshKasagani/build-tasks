@@ -190,6 +190,11 @@ Set up a Node.js + Angular build environment
 Compiled your app for production
 
 Hosted your Angular app using Nginx
+<img width="800" height="476" alt="9" src="https://github.com/user-attachments/assets/a1e375df-bd5d-4620-8e48-d20952a63f46" />
+<img width="684" height="476" alt="10" src="https://github.com/user-attachments/assets/87e11231-81c0-4ba7-8e8e-e9c075d5f14d" />
+
+
+
 
 
 
