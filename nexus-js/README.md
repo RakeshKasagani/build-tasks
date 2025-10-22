@@ -1,4 +1,5 @@
 🧩 Detailed Documentation: Nexus Repository Integration for JavaScript
+
 ⚙️ 1. Prerequisites
 
 ✅ Ensure the following are ready:
@@ -178,3 +179,4 @@ npm install angular-calculator --registry=http://54.234.208.200:8081/repository/
 If you want this to apply globally (for all npm installs):
 
 npm set registry http://54.234.208.200:8081/repository/npm-releases/
+
